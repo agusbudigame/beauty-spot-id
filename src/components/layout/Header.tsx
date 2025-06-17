@@ -1,5 +1,6 @@
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { MapPin, Menu, X, User } from "lucide-react";
 
@@ -11,14 +12,14 @@ const Header = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-rose-gradient rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-sm">BB</span>
             </div>
             <h1 className="font-playfair font-bold text-xl text-neutral-charcoal">
               BOOK BEAUTY
             </h1>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -42,12 +43,16 @@ const Header = () => {
               <MapPin className="w-4 h-4 mr-2" />
               Jakarta
             </Button>
-            <Button variant="ghost" size="sm" className="text-neutral-charcoal hover:text-primary-500 hover:bg-rose-soft/50">
-              <User className="w-4 h-4 mr-2" />
-              Masuk
+            <Button asChild variant="ghost" size="sm" className="text-neutral-charcoal hover:text-primary-500 hover:bg-rose-soft/50">
+              <Link to="/auth">
+                <User className="w-4 h-4 mr-2" />
+                Masuk
+              </Link>
             </Button>
-            <Button className="bg-accent-gradient text-white hover:shadow-warm transition-all duration-300 font-poppins font-medium">
-              Daftar Salon
+            <Button asChild className="bg-accent-gradient text-white hover:shadow-warm transition-all duration-300 font-poppins font-medium">
+              <Link to="/auth">
+                Daftar Salon
+              </Link>
             </Button>
           </div>
 
@@ -85,12 +90,16 @@ const Header = () => {
                   <MapPin className="w-4 h-4 mr-2" />
                   Jakarta
                 </Button>
-                <Button variant="ghost" size="sm" className="w-full justify-start text-neutral-charcoal hover:text-primary-500 hover:bg-rose-soft/50">
-                  <User className="w-4 h-4 mr-2" />
-                  Masuk
+                <Button asChild variant="ghost" size="sm" className="w-full justify-start text-neutral-charcoal hover:text-primary-500 hover:bg-rose-soft/50">
+                  <Link to="/auth">
+                    <User className="w-4 h-4 mr-2" />
+                    Masuk
+                  </Link>
                 </Button>
-                <Button className="w-full bg-accent-gradient text-white hover:shadow-warm transition-all duration-300 font-poppins font-medium">
-                  Daftar Salon
+                <Button asChild className="w-full bg-accent-gradient text-white hover:shadow-warm transition-all duration-300 font-poppins font-medium">
+                  <Link to="/auth">
+                    Daftar Salon
+                  </Link>
                 </Button>
               </div>
             </nav>
